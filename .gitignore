@@ -1,0 +1,29 @@
+# Entornos virtuales
+entorno_mediapipe/
+nombre_entorno/
+env/
+venv/
+
+# Archivos de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Archivos binarios grandes
+*.dll
+*.so
+*.exe
+
+# Datos y modelos
+*.pkl
+*.h5
+*.model
+
+# Configuración IDE
+.vscode/
+.idea/
+
+# Otros
+.DS_Store
+Thumbs.db
