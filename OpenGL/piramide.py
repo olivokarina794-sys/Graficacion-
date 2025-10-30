@@ -35,45 +35,32 @@ def draw_pyramid():
     glTranslatef(0.0, 0.0, -5)  # Muevo la pirámide hacia atrás para verla bien
     glRotatef(angle, 0, 1, 0)   # La hago girar alrededor del eje Y (el vertical)
 
-    # Empiezo a dibujar las caras triangulares de la pirámide
+    # Empiezo a dibujar TODAS las caras triangulares de la pirámide
     glBegin(GL_TRIANGLES)
 
     # Cara frontal - Rojo
     glColor3f(1.0, 0.0, 0.0)    # Pongo color rojo
-    glVertex3f( 0.0, 1.0, 0.0)  # Este es la punta de la pirámide
-    glVertex3f(-1.0, -1.0, 1.0) # Esquina inferior izquierda frontal
-    glVertex3f( 1.0, -1.0, 1.0) # Esquina inferior derecha frontal
+    glVertex3f( 0.0, 1.0, 0.0)  # Punta de la pirámide
+    glVertex3f(-1.0, -1.0, 0.0) # Base izquierda
+    glVertex3f( 0.0, -1.0, 1.0) # Base frontal
 
     # Cara derecha - Verde
     glColor3f(0.0, 1.0, 0.0)    # Pongo color verde
-    glVertex3f(0.0, 1.0, 0.0)   # Punta otra vez
-    glVertex3f(1.0, -1.0, 1.0)  # Esquina frontal derecha
-    glVertex3f(1.0, -1.0, -1.0) # Esquina trasera derecha
+    glVertex3f(0.0, 1.0, 0.0)   # Punta
+    glVertex3f(0.0, -1.0, 1.0)  # Base frontal
+    glVertex3f(1.0, -1.0, 0.0)  # Base derecha
 
-    # Cara trasera - Azul
+    # Cara izquierda - Azul
     glColor3f(0.0, 0.0, 1.0)    # Pongo color azul
-    glVertex3f( 0.0, 1.0, 0.0)   # Punta
-    glVertex3f( 1.0, -1.0, -1.0) # Esquina derecha trasera
-    glVertex3f(-1.0, -1.0, -1.0) # Esquina izquierda trasera
+    glVertex3f(0.0, 1.0, 0.0)   # Punta
+    glVertex3f(1.0, -1.0, 0.0)  # Base derecha
+    glVertex3f(-1.0, -1.0, 0.0) # Base izquierda
 
-    # Cara izquierda - Amarillo
+    # Base - Amarillo (también es un triángulo)
     glColor3f(1.0, 1.0, 0.0)    # Pongo color amarillo
-    glVertex3f( 0.0, 1.0, 0.0)   # Punta
-    glVertex3f(-1.0, -1.0, -1.0) # Esquina trasera izquierda
-    glVertex3f(-1.0, -1.0, 1.0)  # Esquina frontal izquierda
-
-    # Base de la pirámide - dividida en 2 triángulos
-    glColor3f(1.0, 0.0, 1.0)    # Color magenta para la base
-    
-    # Primer triángulo de la base
-    glVertex3f(-1.0, -1.0, 1.0)   # Frente izquierdo
-    glVertex3f( 1.0, -1.0, 1.0)   # Frente derecho  
-    glVertex3f( 1.0, -1.0, -1.0)  # Atrás derecho
-    
-    # Segundo triángulo de la base
-    glVertex3f(-1.0, -1.0, 1.0)   # Frente izquierdo
-    glVertex3f( 1.0, -1.0, -1.0)  # Atrás derecho
-    glVertex3f(-1.0, -1.0, -1.0)  # Atrás izquierdo
+    glVertex3f(-1.0, -1.0, 0.0) # Esquina izquierda de la base
+    glVertex3f( 0.0, -1.0, 1.0) # Esquina frontal de la base
+    glVertex3f( 1.0, -1.0, 0.0) # Esquina derecha de la base
 
     glEnd()  # Termino de dibujar todos los triángulos
 
@@ -97,7 +84,7 @@ def main():
 
     # Creo la ventana de 500x500 píxeles
     width, height = 500, 500
-    window = glfw.create_window(width, height, "Pirámide 3D Girando - Solo Triángulos", None, None)
+    window = glfw.create_window(width, height, "Pirámide Triangular 3D Girando", None, None)
     if not window:
         glfw.terminate()
         sys.exit()
